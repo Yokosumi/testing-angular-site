@@ -11,10 +11,23 @@ import { Component, Input } from '@angular/core';
 export class InfoBoxComponent {
 	@Input() title = '(title)';
 	@Input() body = '(body)';
-	@Input() status = '';
-	statusColor = 'yellow';
+	@Input() author = '(author)';
+	@Input() status = '(status unknown)';
+
+	dateOfInfo = 'Dec 23, 2022';
+	statusColor = '';
+	showDevInfo = false;
 
 	ngOnInit() {
-		this.statusColor = this.status === 'success' ? 'lightgreen' : 'tomato';
+		this.statusColor =
+			this.status === 'success'
+				? 'lightgreen'
+				: this.status === 'danger'
+				? 'tomato'
+				: 'gray';
 	}
+
+	handleShowDevInfoToggle = () => {
+		this.showDevInfo = !this.showDevInfo;
+	};
 }

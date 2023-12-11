@@ -1,11 +1,29 @@
 <div
-	class="bg-blue-900 w-72 p-2 rounded mt-4"
-	[ngStyle]="{ border: '3px solid ' + statusColor }"
+	class="bg-blue-900 w-96 p-2 rounded mt-4"
+	[ngStyle]="{ border: '5px solid ' + statusColor }"
 >
 	<p *ngIf="status === 'danger'" [ngStyle]="{ color: statusColor }">
 		please read
 	</p>
 	<p class="text-2xl text-yellow-300">{{ title }}</p>
-	<p class="text-gray-400 italic">{{ body }}</p>
-	<p class="text-white">STATUS IS: {{ status }}</p>
+	<p class="text-gray-200 italic">{{ body }}</p>
+	<p class="text-orange-300">{{ dateOfInfo }}</p>
+	<p class="text-green-300">{{ author }}</p>
+	<p class="text-white">STATUS: {{ status }}</p>
+
+	<button class="mt-4" (click)="handleShowDevInfoToggle()">
+		Toggle Dev Info
+	</button>
+	<div *ngIf="showDevInfo">
+		<div
+			[ngSwitch]="status"
+			class="border-t border-green-900 mt-5 pt-2 text-gray-400"
+		>
+			<span *ngSwitchCase="'danger'">This info-box warns a user.</span>
+			<span *ngSwitchCase="'success'"
+				>Success is displayed when no action is required.</span
+			>
+			<span *ngSwitchDefault>Unknown status code: {{ status }}</span>
+		</div>
+	</div>
 </div>
