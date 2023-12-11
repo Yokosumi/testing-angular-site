@@ -15,6 +15,6 @@ export class InfoBoxComponent {
 	statusColor = 'yellow';
 
 	ngOnInit() {
-		this.statusColor = this.status === 'success' ? 'green' : 'red';
+		this.statusColor = this.status === 'success' ? 'lightgreen' : 'tomato';
 	}
 }

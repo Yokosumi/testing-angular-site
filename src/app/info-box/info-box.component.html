@@ -2,6 +2,9 @@
 	class="bg-blue-900 w-72 p-2 rounded mt-4"
 	[ngStyle]="{ border: '3px solid ' + statusColor }"
 >
+	<p *ngIf="status === 'danger'" [ngStyle]="{ color: statusColor }">
+		please read
+	</p>
 	<p class="text-2xl text-yellow-300">{{ title }}</p>
 	<p class="text-gray-400 italic">{{ body }}</p>
 	<p class="text-white">STATUS IS: {{ status }}</p>
